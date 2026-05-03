@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image'
 import logo from "@/assets/logo.png"
+import NavLink from './NavLink';
 
 const Navbar = () => {
     return (
@@ -11,7 +12,9 @@ const Navbar = () => {
             </div>
             <div>
                 <ul>
-                    
+                    <li><NavLink href="/">Home</NavLink></li>
+                    <li><NavLink href="/products">Products</NavLink></li>
+                    <li><NavLink href="/profile">My Profiles</NavLink></li>
                 </ul>
             </div>
             <div></div>
