@@ -67,12 +67,15 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end hidden lg:flex gap-4">
-          <a className="btn rounded-xl">
-            <Link href="/login">Login</Link>
-          </a>
-          <a className="btn rounded-xl bg-gradient-to-br from-orange-500 to-yellow-400 text-white font-extrabold">
-            <Link href="/register">Register</Link>
-          </a>
+          <Link href="/login" className="btn rounded-xl">
+            Login
+          </Link>
+          <Link
+            href="/register"
+            className="btn rounded-xl bg-gradient-to-br from-orange-500 to-yellow-400 text-white font-extrabold"
+          >
+            Register
+          </Link>
         </div>
       </div>
     </div>
