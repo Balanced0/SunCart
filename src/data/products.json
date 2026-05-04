@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "UV Protection Sunglasses",
+    "brand": "SunShade",
+    "price": 15,
+    "rating": 4.7,
+    "stock": 10,
+    "description": "Stylish UV protection sunglasses perfect for summer outings.",
+    "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083",
+    "category": "Accessories"
+  },
+  {
+    "id": 2,
+    "name": "Beach Straw Hat",
+    "brand": "SunnyWear",
+    "price": 12,
+    "rating": 4.5,
+    "stock": 18,
+    "description": "Lightweight straw hat designed to keep you cool under the sun.",
+    "image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518",
+    "category": "Fashion"
+  },
+  {
+    "id": 3,
+    "name": "Aloe Vera Sunscreen SPF 50",
+    "brand": "GlowSkin",
+    "price": 20,
+    "rating": 4.8,
+    "stock": 25,
+    "description": "Water-resistant sunscreen with aloe vera for maximum skin protection.",
+    "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9",
+    "category": "Skincare"
+  },
+  {
+    "id": 4,
+    "name": "Summer Floral Shirt",
+    "brand": "OceanFit",
+    "price": 28,
+    "rating": 4.6,
+    "stock": 14,
+    "description": "Breathable floral shirt made with soft cotton fabric for hot weather.",
+    "image": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b",
+    "category": "Clothing"
+  },
+  {
+    "id": 5,
+    "name": "Portable Mini Fan",
+    "brand": "CoolBreeze",
+    "price": 18,
+    "rating": 4.4,
+    "stock": 30,
+    "description": "Rechargeable handheld mini fan perfect for travel and outdoor activities.",
+    "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
+    "category": "Electronics"
+  },
+  {
+    "id": 6,
+    "name": "Beach Flip Flops",
+    "brand": "WaveWalk",
+    "price": 16,
+    "rating": 4.3,
+    "stock": 22,
+    "description": "Comfortable waterproof flip flops designed for beach adventures.",
+    "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c",
+    "category": "Footwear"
+  }
+]
