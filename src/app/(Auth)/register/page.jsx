@@ -47,7 +47,7 @@ const RegisterPage = () => {
           />
 
           <button className="btn btn-lg bg-gradient-to-br from-orange-500 to-yellow-400 text-white font-bold rounded-xl mt-4">
-            Login
+            Register
           </button>
 
           <div className="divider">OR</div>
@@ -80,7 +80,7 @@ const RegisterPage = () => {
                 ></path>
               </g>
             </svg>
-            Login with Google
+            Continue with Google
           </button>
 
           <h3 className="text-center text-sm"><span className="text-gray-500">Already have an account?</span> <Link href="/login" className="text-orange-500">Login</Link> </h3>
