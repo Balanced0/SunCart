@@ -1,6 +1,38 @@
+"use client";
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
+import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const RegisterPage = () => {
+    
+  const router = useRouter();
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const handleRegisterFunc = async (data) => {
+    const { name, email, photo, password } = data;
+
+    const { data: res, error } = await authClient.signUp.email({
+      name: name, // required
+      email: email, // required
+      password: password, // required
+      image: photo,
+      callbackURL: "/",
+    });
+
+    if (error) {
+      toast.error("User already Exists!");
+    } else {
+      router.push("/");
+    }
+  };
   return (
     <div>
       <div className="container mx-auto p-4 flex justify-center items-center">
@@ -14,41 +46,49 @@ const RegisterPage = () => {
             </p>
           </div>
 
-          <label className="label text-black text-base font-bold">Name</label>
-          <input
-            type="text"
-            className="input mb-4 w-full rounded-xl"
-            placeholder="Enter your name"
-          />
+          <form onSubmit={handleSubmit(handleRegisterFunc)}>
+            <label className="label text-black text-base font-bold">Name</label>
+            <input
+              type="text"
+              className="input mb-4 w-full rounded-xl"
+              placeholder="Enter your name"
+              {...register("name", { required: true })}
+            />
 
-          <label className="label text-black text-base font-bold">Email</label>
-          <input
-            type="email"
-            className="input mb-4 w-full rounded-xl"
-            placeholder="Enter your Email"
-          />
+            <label className="label text-black text-base font-bold">
+              Email
+            </label>
+            <input
+              type="email"
+              className="input mb-4 w-full rounded-xl"
+              placeholder="Enter your Email"
+              {...register("email", { required: true })}
+            />
 
-          <label className="label text-black text-base font-bold">
-            Photo URL
-          </label>
-          <input
-            type="text"
-            className="input mb-4 w-full rounded-xl"
-            placeholder="Enter URL"
-          />
+            <label className="label text-black text-base font-bold">
+              Photo URL
+            </label>
+            <input
+              type="text"
+              className="input mb-4 w-full rounded-xl"
+              placeholder="Enter URL"
+              {...register("photo", { required: true })}
+            />
 
-          <label className="label text-black text-base font-bold">
-            Password
-          </label>
-          <input
-            type="password"
-            className="input w-full rounded-xl"
-            placeholder="Enter Password"
-          />
+            <label className="label text-black text-base font-bold">
+              Password
+            </label>
+            <input
+              type="password"
+              className="input w-full rounded-xl"
+              placeholder="Enter Password"
+              {...register("password", { required: true })}
+            />
 
-          <button className="btn btn-lg bg-gradient-to-br from-orange-500 to-yellow-400 text-white font-bold rounded-xl mt-4">
-            Register
-          </button>
+            <button className="btn btn-lg bg-gradient-to-br from-orange-500 to-yellow-400 text-white font-bold rounded-xl mt-4 w-full">
+              Register
+            </button>
+          </form>
 
           <div className="divider">OR</div>
 
@@ -83,9 +123,15 @@ const RegisterPage = () => {
             Continue with Google
           </button>
 
-          <h3 className="text-center text-sm"><span className="text-gray-500">Already have an account?</span> <Link href="/login" className="text-orange-500">Login</Link> </h3>
+          <h3 className="text-center text-sm">
+            <span className="text-gray-500">Already have an account?</span>
+            <Link href="/login" className="text-orange-500">
+              Login
+            </Link>{" "}
+          </h3>
         </fieldset>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };
