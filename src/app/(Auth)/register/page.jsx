@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 
 const RegisterPage = () => {
-    
+
   const router = useRouter();
 
   const {
@@ -28,7 +28,7 @@ const RegisterPage = () => {
     });
 
     if (error) {
-      toast.error("User already Exists!");
+      toast.error(`${error.message}`);
     } else {
       router.push("/");
     }
@@ -52,8 +52,9 @@ const RegisterPage = () => {
               type="text"
               className="input mb-4 w-full rounded-xl"
               placeholder="Enter your name"
-              {...register("name", { required: true })}
+              {...register("name", { required: "Name is required" })}
             />
+            {errors.name && <p className="text-red-500">{errors.name.message}</p>}
 
             <label className="label text-black text-base font-bold">
               Email
@@ -62,8 +63,9 @@ const RegisterPage = () => {
               type="email"
               className="input mb-4 w-full rounded-xl"
               placeholder="Enter your Email"
-              {...register("email", { required: true })}
+              {...register("email", { required: "Email is required" })}
             />
+            {errors.email && <p className="text-red-500">{errors.email.message}</p>}
 
             <label className="label text-black text-base font-bold">
               Photo URL
@@ -72,8 +74,9 @@ const RegisterPage = () => {
               type="text"
               className="input mb-4 w-full rounded-xl"
               placeholder="Enter URL"
-              {...register("photo", { required: true })}
+              {...register("photo", { required: "Photo URL is required" })}
             />
+            {errors.photo && <p className="text-red-500">{errors.photo.message}</p>}
 
             <label className="label text-black text-base font-bold">
               Password
@@ -82,8 +85,9 @@ const RegisterPage = () => {
               type="password"
               className="input w-full rounded-xl"
               placeholder="Enter Password"
-              {...register("password", { required: true })}
+              {...register("password", { required: "Password is required" })}
             />
+            {errors.password && <p className="text-red-500">{errors.password.message}</p>}
 
             <button className="btn btn-lg bg-gradient-to-br from-orange-500 to-yellow-400 text-white font-bold rounded-xl mt-4 w-full">
               Register

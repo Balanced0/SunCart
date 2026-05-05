@@ -1,6 +1,31 @@
+"use client";
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
+import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
+  const router = useRouter();
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const handleSignInFunc = async (data) => {
+    const { data: res, error } = await authClient.signIn.email({
+      email: data.email, // required
+      password: data.password, // required
+      rememberMe: true,
+      callbackURL: "/",
+    });
+    if(error){
+        toast.error(`${error.message}`);
+    }
+  };
   return (
     <div>
       <div className="container mx-auto p-4 flex justify-center items-center">
@@ -14,25 +39,33 @@ const LoginPage = () => {
             </p>
           </div>
 
-          <label className="label text-black text-base font-bold">Email</label>
-          <input
-            type="email"
-            className="input mb-4 w-full rounded-xl"
-            placeholder="Enter your Email"
-          />
+          <form onSubmit={handleSubmit(handleSignInFunc)}>
+            <label className="label text-black text-base font-bold">
+              Email
+            </label>
+            <input
+              type="email"
+              className="input mb-4 w-full rounded-xl"
+              placeholder="Enter your Email"
+              {...register("email", { required: "Email is required" })}
+            />
+            {errors.email && <p className="text-red-500">{errors.email.message}</p>}
 
-          <label className="label text-black text-base font-bold">
-            Password
-          </label>
-          <input
-            type="password"
-            className="input w-full rounded-xl"
-            placeholder="Enter Password"
-          />
+            <label className="label text-black text-base font-bold">
+              Password
+            </label>
+            <input
+              type="password"
+              className="input w-full rounded-xl"
+              placeholder="Enter Password"
+              {...register("password", { required: "Password is required" })}
+            />
+            {errors.password && <p className="text-red-500">{errors.password.message}</p>}
 
-          <button className="btn btn-lg bg-gradient-to-br from-orange-500 to-yellow-400 text-white font-bold rounded-xl mt-4">
-            Login
-          </button>
+            <button className="btn btn-lg bg-gradient-to-br from-orange-500 to-yellow-400 text-white font-bold rounded-xl mt-4 w-full">
+              Login
+            </button>
+          </form>
 
           <div className="divider">OR</div>
 
@@ -71,10 +104,11 @@ const LoginPage = () => {
             <span className="text-gray-500">Don't have an account?</span>{" "}
             <Link href="/register" className="text-orange-500">
               Register
-            </Link>{" "}
+            </Link>
           </h3>
         </fieldset>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };
