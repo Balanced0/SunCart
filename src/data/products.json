@@ -18,7 +18,7 @@
     "rating": 4.5,
     "stock": 18,
     "description": "Lightweight straw hat designed to keep you cool under the sun.",
-    "image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518",
+    "image": "https://images.pexels.com/photos/984619/pexels-photo-984619.jpeg",
     "category": "Fashion"
   },
   {
@@ -29,7 +29,7 @@
     "rating": 4.8,
     "stock": 25,
     "description": "Water-resistant sunscreen with aloe vera for maximum skin protection.",
-    "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9",
+    "image": "https://images.pexels.com/photos/3685530/pexels-photo-3685530.jpeg",
     "category": "Skincare"
   },
   {
@@ -40,7 +40,7 @@
     "rating": 4.6,
     "stock": 14,
     "description": "Breathable floral shirt made with soft cotton fabric for hot weather.",
-    "image": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b",
+    "image": "https://images.pexels.com/photos/29473713/pexels-photo-29473713.jpeg",
     "category": "Clothing"
   },
   {
@@ -51,7 +51,7 @@
     "rating": 4.4,
     "stock": 30,
     "description": "Rechargeable handheld mini fan perfect for travel and outdoor activities.",
-    "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
+    "image": "https://images.pexels.com/photos/14542079/pexels-photo-14542079.jpeg",
     "category": "Electronics"
   },
   {
@@ -62,7 +62,7 @@
     "rating": 4.3,
     "stock": 22,
     "description": "Comfortable waterproof flip flops designed for beach adventures.",
-    "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c",
+    "image": "https://images.pexels.com/photos/8455817/pexels-photo-8455817.jpeg",
     "category": "Footwear"
   }
 ]
