@@ -1,10 +1,18 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import logo from "@/assets/logo.png";
 import NavLink from "./NavLink";
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
+  const { data: session } = authClient.useSession();
+
+  const handleLogOut = async () => {
+    await authClient.signOut();
+  };
+
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="container mx-auto px-4 flex">
@@ -40,12 +48,28 @@ const Navbar = () => {
               <li>
                 <NavLink href="/profile">My Profiles</NavLink>
               </li>
-              <li>
-                <NavLink href="/login">Login</NavLink>
-              </li>
-              <li>
-                <NavLink href="/register">Register</NavLink>
-              </li>
+              {!session && (
+                <>
+                  <li>
+                    <NavLink href="/login">Login</NavLink>
+                  </li>
+                  <li>
+                    <NavLink href="/register">Register</NavLink>
+                  </li>
+                </>
+              )}
+              {session && (
+                <>
+                  <li>
+                    <button
+                      onClick={handleLogOut}
+                      className="text-gray-500 font-bold w-full text-left"
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
           <a className="text-xl flex items-center justify-center cursor-pointer">
@@ -66,17 +90,31 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div className="navbar-end hidden lg:flex gap-4">
-          <Link href="/login" className="btn rounded-xl">
-            Login
-          </Link>
-          <Link
-            href="/register"
-            className="btn rounded-xl bg-gradient-to-br from-orange-500 to-yellow-400 text-white font-extrabold"
-          >
-            Register
-          </Link>
-        </div>
+        {session ? (
+          <div className="navbar-end lg:flex gap-4">
+            <div className="w-12 rounded-full">
+              <img alt={session.user.name} src={session.user.image} />
+            </div>
+            <button
+              onClick={handleLogOut}
+              className="btn rounded-xl bg-gradient-to-br from-orange-500 to-yellow-400 text-white font-extrabold"
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div className="navbar-end hidden lg:flex gap-4">
+            <Link href="/login" className="btn rounded-xl">
+              Login
+            </Link>
+            <Link
+              href="/register"
+              className="btn rounded-xl bg-gradient-to-br from-orange-500 to-yellow-400 text-white font-extrabold"
+            >
+              Register
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
