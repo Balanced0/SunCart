@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FaStar } from "react-icons/fa6";
 
@@ -16,7 +17,7 @@ const ProductCard = ({product}) => {
           <h2 className="card-title">{product.name}</h2>
           <p className="text-gray-500 flex items-center gap-2">{product.rating} <FaStar /></p>
           <p className="text-orange-500 font-extrabold text-2xl">${product.price}</p>
-          <button className="btn bg-gradient-to-br from-orange-500 to-yellow-400 text-white rounded-xl">View Details</button>
+          <Link href={`/productPage/${product.id}`}><button className="btn bg-gradient-to-br from-orange-500 to-yellow-400 text-white rounded-xl w-full">View Details</button></Link>
         </div>
       </div>
     </div>
