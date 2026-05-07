@@ -4,7 +4,7 @@
 A modern summer eCommerce platform where users can explore and purchase seasonal products like sunglasses, summer outfits, skincare, and beach accessories. Users can browse products, view details, and manage their profile after authentication.
  
 ## Live URL
-[https://suncart.vercel.app](https://suncart.vercel.app)
+[https://sun-cart-peach-iota.vercel.app/](https://sun-cart-peach-iota.vercel.app/)
  
 ## Key Features
 - Modern and clean summer-themed design
