@@ -25,7 +25,7 @@ const ProductPage = async({ params }) => {
             <p className="text-3xl text-orange-500 font-extrabold mb-4">${product.price}</p>
             <p className="text-xl text-gray-500 font-extrabold mb-4">Stock: {product.stock}</p>
             <p className="text-xl text-gray-500 font-medium">{product.description}</p>
-            <div className="flex gap-4 mt-auto">
+            <div className="flex flex-col lg:flex-row gap-4 mt-auto">
                 <button className="btn btn-lg bg-gradient-to-br from-orange-500 to-yellow-400 text-white font-extrabold rounded-xl flex-3">Add to Cart</button>
                 <button className="btn btn-lg rounded-xl flex-1">Buy Now</button>
             </div>

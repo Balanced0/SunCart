@@ -99,7 +99,7 @@ const Navbar = () => {
             </div>
             <button
               onClick={handleLogOut}
-              className="btn rounded-xl bg-gradient-to-br from-orange-500 to-yellow-400 text-white font-extrabold"
+              className="btn rounded-xl hidden lg:flex bg-gradient-to-br from-orange-500 to-yellow-400 text-white font-extrabold"
             >
               Logout
             </button>
