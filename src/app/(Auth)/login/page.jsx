@@ -22,9 +22,16 @@ const LoginPage = () => {
       rememberMe: true,
       callbackURL: "/",
     });
-    if(error){
-        toast.error(`${error.message}`);
+    if (error) {
+      toast.error(`${error.message}`);
     }
+  };
+
+  const handleGoogleSignIn = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/",
+    });
   };
   return (
     <div>
@@ -49,7 +56,9 @@ const LoginPage = () => {
               placeholder="Enter your Email"
               {...register("email", { required: "Email is required" })}
             />
-            {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+            {errors.email && (
+              <p className="text-red-500">{errors.email.message}</p>
+            )}
 
             <label className="label text-black text-base font-bold">
               Password
@@ -60,7 +69,9 @@ const LoginPage = () => {
               placeholder="Enter Password"
               {...register("password", { required: "Password is required" })}
             />
-            {errors.password && <p className="text-red-500">{errors.password.message}</p>}
+            {errors.password && (
+              <p className="text-red-500">{errors.password.message}</p>
+            )}
 
             <button className="btn btn-lg bg-gradient-to-br from-orange-500 to-yellow-400 text-white font-bold rounded-xl mt-4 w-full">
               Login
@@ -69,7 +80,10 @@ const LoginPage = () => {
 
           <div className="divider">OR</div>
 
-          <button className="btn rounded-xl bg-white text-black border-[#e5e5e5]">
+          <button
+            onClick={handleGoogleSignIn}
+            className="btn rounded-xl bg-white text-black border-[#e5e5e5]"
+          >
             <svg
               aria-label="Google logo"
               width="16"

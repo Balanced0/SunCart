@@ -33,6 +33,13 @@ const RegisterPage = () => {
       router.push("/");
     }
   };
+
+  const handleGoogleSignIn = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/",
+    });
+  };
   return (
     <div>
       <div className="container mx-auto p-4 flex justify-center items-center">
@@ -96,7 +103,7 @@ const RegisterPage = () => {
 
           <div className="divider">OR</div>
 
-          <button className="btn rounded-xl bg-white text-black border-[#e5e5e5]">
+          <button onClick={handleGoogleSignIn} className="btn rounded-xl bg-white text-black border-[#e5e5e5]">
             <svg
               aria-label="Google logo"
               width="16"
