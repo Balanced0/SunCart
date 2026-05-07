@@ -92,8 +92,10 @@ const Navbar = () => {
         </div>
         {session ? (
           <div className="navbar-end lg:flex gap-4">
-            <div className="w-12 rounded-full">
-              <img alt={session.user.name} src={session.user.image} />
+            <div className="avatar">
+              <div className="w-12 rounded-full overflow-hidden">
+                <img alt={session.user.name} src={session.user.image} />
+              </div>
             </div>
             <button
               onClick={handleLogOut}

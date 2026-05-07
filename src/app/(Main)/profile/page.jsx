@@ -23,9 +23,11 @@ const ProfilePage = () => {
               <h2 className="card-title font-extrabold text-3xl mb-6">
                 My Profile
               </h2>
-              <div className="w-32 rounded-full">
+              <div className="avatar">
+              <div className="w-32 rounded-full overflow-hidden">
                 <img alt={session.user.name} src={session.user.image} />
               </div>
+            </div>
               <p className="font-medium text-xl mb-4">{session.user.name}</p>
               <p className="text-gray-500 mb-4 flex gap-2 items-center">
                 <CiMail /> {session.user.email}
