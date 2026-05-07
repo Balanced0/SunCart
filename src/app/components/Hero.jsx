@@ -1,6 +1,7 @@
 import React from "react";
 import heroBanner from "@/assets/hero-banner.jpg";
 import Link from "next/link";
+import 'animate.css';
 
 const Hero = () => {
   return (
@@ -16,7 +17,7 @@ const Hero = () => {
         <div className="hero-content text-neutral-content text-center">
           <div className="max-w-md">
             <div className="badge badge-warning text-black font-extrabold p-4 rounded-2xl mb-3">🔥 Hot Deals</div>
-            <h1 className="mb-5 font-extrabold text-5xl">
+            <h1 className="mb-5 font-extrabold text-5xl animate__animated animate__zoomIn	animate__slower">
               Summer Sale 50% OFF
             </h1>
             <p className="font-semibold mb-3">Discover the hottest summer essentials at unbeatable prices</p>

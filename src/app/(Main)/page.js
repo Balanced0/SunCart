@@ -5,6 +5,7 @@ import TopBrands from "../components/TopBrands";
 import ProductCard from "../components/ProductCard";
 import products from "@/data/products.json";
 import Link from "next/link";
+import 'animate.css';
 
 export default function Home() {
   return (
