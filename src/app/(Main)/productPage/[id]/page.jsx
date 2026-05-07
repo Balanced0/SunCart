@@ -14,14 +14,16 @@ const ProductPage = async({ params }) => {
             <img
               src={product.image}
               alt={product.name}
+              className="w-full h-64 lg:h-full object-cover"
             />
           </figure>
-          <div className="lg:w-1/2 p-8 flex flex-col gap-3">
+          <div className="lg:w-1/2 p-4 lg:p-8 flex flex-col gap-3">
             <div className="badge badge-soft badge-success">{product.category}</div>
             <h2 className="card-title text-3xl font-extrabold">{product.name}</h2>
             <p className="text-2xl text-gray-500 font-medium">{product.brand}</p>
             <p className="flex gap-2 items-center mb-6">{product.rating} <FaStar /></p>
             <p className="text-3xl text-orange-500 font-extrabold mb-4">${product.price}</p>
+            <p className="text-xl text-gray-500 font-extrabold mb-4">Stock: {product.stock}</p>
             <p className="text-xl text-gray-500 font-medium">{product.description}</p>
             <div className="flex gap-4 mt-auto">
                 <button className="btn btn-lg bg-gradient-to-br from-orange-500 to-yellow-400 text-white font-extrabold rounded-xl flex-3">Add to Cart</button>
